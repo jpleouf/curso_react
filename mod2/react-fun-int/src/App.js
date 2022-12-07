@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Saludo from './components/Saludo';
 import input from './components/Input';
-import Traductor from './components/Traductor';
+import Traductor from './components/TraductorV2';
 import Calculadora from './components/Calculadora';
 
 function App() {
