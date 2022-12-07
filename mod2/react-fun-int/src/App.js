@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+/*import 'https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css';*/
 import Saludo from './components/Saludo';
 import input from './components/Input';
 import Traductor from './components/TraductorV2';

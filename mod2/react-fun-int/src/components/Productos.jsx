@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 const Productos = () => {
-    const [productos,setproductos]=useState([]);
+    const [productos,setProductos]=useState([]);
 
        
     useEffect(()=>{
@@ -11,17 +11,41 @@ const Productos = () => {
         .then(response => response.json())
         .then(json => console.log(json));*/
 
-        fetch('https://dummyjson.com/products/1')
+        fetch('https://dummyjson.com/products')
         .then(response => { return response.json()})
-        .then((data) => {console.log(data);});
+        .then((data) => {console.log(data);setProductos(data.products);});
 
-    });
+    }, []);
 
     console.log('Loaded!');
 
     return (
     <div>
         <h1>Mostrando Productos</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>titulo</th>
+                <th>brand</th>
+                <th>category</th>
+                <th>thumbnail</th>
+            </tr>
+            </thead>
+            <tbody>
+                {productos.map((producto) => {return (
+                <tr>
+                <td>{producto.title}</td>
+                <td>{producto.brand}</td>
+                <td>{producto.category}</td>
+                <td><img width="50px" height="50px" src={producto.thumbnail}></img></td>
+                </tr>
+                );
+                }
+                )}
+
+            </tbody>
+        </table>
     </div>
     );
 }
