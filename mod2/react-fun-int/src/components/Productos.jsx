@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Fila from './Fila';
 
 
 const Productos = () => {
@@ -35,10 +36,12 @@ const Productos = () => {
             <tbody>
                 {productos.map((producto) => {return (
                 <tr key={producto.id}>
-                <td>{producto.title}</td>
-                <td>{producto.brand}</td>
-                <td>{producto.category}</td>
-                <td><img width="50px" height="50px" src={producto.thumbnail}></img></td>
+                    <Fila
+                        title={producto.title}
+                        brand={producto.brand}
+                        category={producto.category}
+                        thumbnail={producto.thumbnail}
+                    />
                 </tr>
                 );
                 }
