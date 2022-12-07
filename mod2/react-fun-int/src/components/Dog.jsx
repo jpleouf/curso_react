@@ -5,7 +5,7 @@ import { useState } from "react";
 const Dog = () => {
     const [titulo,setTitulo]=useState('Dog Component');
     const [descripcion,setDescripcion]=useState('');
-    const [data, setData]=useState({});
+    const [data, setData]=useState({message : 'test'});
 
     const onClickButton = ()=>{
         setTitulo((Math.random() + 1).toString(36).substring(7));
@@ -23,11 +23,13 @@ const Dog = () => {
 
     },[titulo, descripcion]);
 
+    console.log('Loaded!');
+
     return (
     <div>
         <h1 alt={descripcion}>{titulo}</h1>
         <button onClick={onClickButton}>Cambiar el titulo</button>
-        <img src={data.message}></img>
+        <img width="150px" height="150px" src={data.message}></img>
     </div>
     );
 }

@@ -5,6 +5,7 @@ import input from './components/Input';
 import Traductor from './components/TraductorV2';
 import Calculadora from './components/Calculadora';
 import Dog from './components/Dog';
+import Productos from './components/Productos';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </header>
 
 
+      <Productos></Productos>
       <Dog></Dog>
       <Calculadora></Calculadora>
       <Traductor></Traductor>
