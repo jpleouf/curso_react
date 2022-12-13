@@ -7,6 +7,7 @@ import Traductor from './components/TraductorV2';
 import Calculadora from './components/Calculadora';
 import Dog from './components/Dog';
 import Productos from './components/Productos';
+import SelectPaises from './components/SelectPaisesV2';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </header>
 
 
+      <SelectPaises></SelectPaises>
       <Productos></Productos>
       <Dog></Dog>
       <Calculadora></Calculadora>
