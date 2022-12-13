@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { createBreakpoints } from '@mui/system';
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Router, { createBrowserRouter } from "react-router-dom"
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <RouterProvider router={router} />
   </React.StrictMode>
 );
 

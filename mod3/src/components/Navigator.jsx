@@ -7,10 +7,14 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import {Link} from "react-router-dom";
 
+  
+  
+
+
 const Navigator = () => {
     return (
         <div>
-            <AppBar position="fixed">
+            <AppBar position="static">
                 <Toolbar>
                     <Link to={'/'}>
                         <Button color="inherit">App</Button>
