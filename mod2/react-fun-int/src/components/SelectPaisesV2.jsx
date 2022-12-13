@@ -35,20 +35,30 @@ const dataProvincias = [
     {id:13, idDepartamento: 7, nombre: 'Cartagena Prov ZZZZZ'}    
 ]
 
-const SelectPaises = () => {
+const SelectPaisesV2 = () => {
     const [paises, setPaises] = useState([]);
     const [departamentos, setDepartamentos] = useState([]);
     const [provincias, setProvincias] = useState([]);
-    const [actualPais, setActualPais] = useState([]);
-    const [actualDep, setActualDep] = useState([]);
-    const [actualProv, setActualProv] = useState([]);
+    const [actualPais, setActualPais] = useState('');
+    const [actualDep, setActualDep] = useState('');
+    const [actualProv, setActualProv] = useState('');
 
     useEffect( () => {
         setPaises(dataPaises);
     }, []);
+
+    const onChangePOaisV2 = (event) => {
+        event.preventDefault();
+        setActualPais(event.target.value);
+    }
+
     useEffect( () => {
         console.log('Cambio el Pais');
-        //setPaises(dataPaises);
+        const depsPorPais = dataDepartamentos.filter( (dep) => {
+            return dep.idPais == actualPais;
+        });
+        setDepartamentos(depsPorPais);
+        //console.log(depsPorPais);
     }, [actualPais]);
 
     const onSelectPais = (event) => {
@@ -90,7 +100,7 @@ const SelectPaises = () => {
     return (
         <div>
             <h2>Filtros por Pais/Provincia/Depto</h2>
-            <select id='paises' name='paises' onChange={onSelectPais}>
+            <select id='paises' name='paises' onChange={onChangePOaisV2}>
                 <option >Seleccione País</option>
                 {
                     paises.map( (pais) => {
@@ -129,4 +139,4 @@ const SelectPaises = () => {
     )
 }
 
-export default SelectPaises;
+export default SelectPaisesV2;
