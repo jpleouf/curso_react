@@ -37,7 +37,8 @@
   }
 }
 
-.AppMenuBtn{
-  color: #ffffff;
-  font-weight: bold;
+a{
+  color:#ffffff;
+  font-weight:bold;
+  letter-spacing: 0.3em;
 }

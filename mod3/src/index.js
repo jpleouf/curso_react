@@ -35,9 +35,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
    <Provider store = {store}>
-    <PersistGate loading={null} persistor={persistor}></PersistGate>
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router} />
+    </PersistGate>
    </Provider>
-   <RouterProvider router={router} />
   </React.StrictMode>
 );
 

@@ -12,7 +12,7 @@ const dispatch=useDispatch();
 },[]);
     return (
     <div>
-        <navigator></navigator>
+        <Navegator></Navegator>
         <h2>Home Page</h2>
     </div>
 );
