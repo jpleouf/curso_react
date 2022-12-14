@@ -1,12 +1,12 @@
 import {SAVE_USER} from './type';
 
-const initialDate = {
+const initialState = {
     user_logged:'',
     name:'',
     lastname:''
 }
 
-const userReducer = (state = inicialData, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type){
         case SAVE_USER:{
                 return {
