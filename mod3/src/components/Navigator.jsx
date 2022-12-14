@@ -17,13 +17,13 @@ const Navigator = () => {
             <AppBar position="static">
                 <Toolbar>
                     <Link to={'/'}>
-                        <Button color="inherit">App</Button>
+                        <Button className="AppMenuBtn" color="inherit">App</Button>
                     </Link>
                     <Link to={'/home'}>
-                        <Button color="inherit">Home</Button>
+                        <Button className="AppMenuBtn" color="inherit">Home</Button>
                     </Link>
                     <Link to={'/about'}>
-                        <Button color="inherit">About</Button>
+                        <Button className="AppMenuBtn" color="inherit">About</Button>
                     </Link>
                 </Toolbar>
             </AppBar>
