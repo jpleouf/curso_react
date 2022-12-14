@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBreakpoints } from '@mui/system';
 import Home from "./pages/Home"
 import About from "./pages/About"
+import Informations from "./pages/Informations"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path : "/about",
     element:<About />
+  },
+  {
+    path : "/informations",
+    element:<Informations />
   }
   
 ]);

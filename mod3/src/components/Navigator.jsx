@@ -25,6 +25,9 @@ const Navigator = () => {
                     <Link to={'/about'}>
                         <Button className="AppMenuBtn" color="inherit">About</Button>
                     </Link>
+                    <Link to={'/informations'}>
+                        <Button className="AppMenuBtn" color="inherit">Informations</Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>
