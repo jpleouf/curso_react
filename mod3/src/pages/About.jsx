@@ -7,11 +7,14 @@ import { useSelect } from '@mui/base';
 const About = () => {
 
 const nombreDelUsuario=useSelector((state) => state.user_logged);
-    return (
+const informations=useSelector((state) => state.informations);
+
+
+return (
     <div>
         <Navegator></Navegator>
         <h2>About Page</h2>
-        <h1>{nombreDelUsuario}</h1>
+        <h1>{informations}</h1>
     </div>
 );
 };
