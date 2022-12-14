@@ -10,8 +10,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([...]);
+
+/*const router = createBrowserRouter([
   {
     path : "/",
     element:<App />
@@ -25,12 +30,15 @@ const router = createBrowserRouter([
     element:<About />
   }
   
-]);
+]);*/
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+   <Provider store = {store}>
+    <PersistGate></PersistGate>
+   </Provider>
    <RouterProvider router={router} />
   </React.StrictMode>
 );
