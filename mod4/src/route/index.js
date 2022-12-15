@@ -7,4 +7,5 @@ module.exports= (app) => {
     
 
     app.get('/api/users',userController.getUser);
+    app.get('/api/user',userController.createUser);
 }

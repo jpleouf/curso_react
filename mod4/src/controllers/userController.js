@@ -9,6 +9,12 @@ module.exports={
         );
     },
     createUser(req, res) {
+        return res.status(200).send(
+            req.body
+            /*{
+                message:'User creado'
+            }*/
+        );
     },
     deleteUser(req, res) {
     }           
