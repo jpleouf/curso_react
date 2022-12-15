@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {setSaveUserLogged} from '../redux/actions';
 import { useSelect} from '@mui/base';
 import { Button, TextField } from "@mui/material";
-
+import {CREATE_USER} from '../redux/type';
+import {setCreateUserLogged} from '../redux/actions';
 
 const About = () => {
 
@@ -14,6 +15,7 @@ const [nombre, setNombre]=useState('');
 const [apellido, setApellido]=useState('');
 const [edad, setEdad]=useState('');
 
+const dispatch=useDispatch();
 
 const informations=useSelector((state) => state.informations);
 
@@ -48,6 +50,7 @@ const sendData = () => {
     .catch(error => console.error('Error:', error))
     .then((data)=>{
         setUserData(data);
+        dispatch(setCreateUserLogged(data));
         console.log(data);
     })
 
