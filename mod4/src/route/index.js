@@ -1,5 +1,10 @@
-module.exports= (app) => {
-    app.get();
+const userController = require('../controllers/userController');
 
-    app.post();
+module.exports= (app) => {
+    app.get('/api', (req, res) => {
+        return res.status(200).send({message: 'API V1 para testing.'});
+    });
+    
+
+    app.get('/api/users',userController.getUser);
 }

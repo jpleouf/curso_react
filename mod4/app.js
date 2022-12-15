@@ -12,6 +12,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
+require('./src/route/index')(app);
+
 app.listen(3001);
 
 app.get('*', (req, res) => {
