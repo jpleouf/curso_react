@@ -16,15 +16,15 @@ app.use(cors());
 
 require('./src/route/index')(app);
 
-app.get('api/clients', (req, res) => {
-    database.collection('client').find().toArray((error, result) => {
+app.get('*', (req, res) => {
+    database.collection('client').find({}).toArray((error, result) => {
         //console.log(database);
-        /*if (err){
+        if (error){
             res.status(200).send({message:'Hubo errores'});
         }
         else{
             res.status(200).send({message:result});
-        }*/
+        }
         
     });
 });
