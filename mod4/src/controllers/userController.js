@@ -39,7 +39,7 @@ module.exports={
             }
             );
         },
-    getClients(){
+    getClients(req, res){
         return res.status(200).send(dataFake);
 
     }           

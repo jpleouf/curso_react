@@ -17,13 +17,14 @@ app.use(cors());
 require('./src/route/index')(app);
 
 app.get('api/clients', (req, res) => {
-    database.collection('client').find({}).toArray((error, result) => {
-        if (err){
+    database.collection('client').find().toArray((error, result) => {
+        //console.log(database);
+        /*if (err){
             res.status(200).send({message:'Hubo errores'});
         }
         else{
-            res.status(200).send({message:'result'});
-        }
+            res.status(200).send({message:result});
+        }*/
         
     });
 });
@@ -35,8 +36,14 @@ app.listen(3001, async () => {
     try {
         await client.connect();
         console.log('SUCCESS');
-        //database = result.db('react');
-
+        database = client.db('react');
+        //console.log(database);
+        database.collection('client').find().toArray((error, result) => {
+            result.forEach((val)=>{
+                console.log(val);
+            });
+        });
+    
     } catch (e) {
         console.error(e);
     }
