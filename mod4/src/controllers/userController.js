@@ -1,11 +1,26 @@
+const dataFake=[
+    {
+        name:'Jean-Pierre',
+        lastname:'Verspieren',
+        age:44
+
+    },
+    {
+        name:'kylian',
+        lastname:'Mbape',
+        age:22
+
+    }
+]
+
 module.exports={
     getUser(req, res) {
-        return res.status(200).send(
-            {
+        return res.status(200).send(dataFake
+            /*{
                 name:'Jean-Pierre',
                 lastname:'Verspieren',
                 age:44
-            }
+            }*/
         );
     },
     createUser(req, res) {
@@ -23,5 +38,9 @@ module.exports={
                 message:'User suprimido'
             }
             );
-        }           
+        },
+    getClients(){
+        return res.status(200).send(dataFake);
+
+    }           
 }

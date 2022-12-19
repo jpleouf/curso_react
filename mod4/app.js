@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 //const compression = require('compression');
 const cors = require('cors');
 const morgan = require('morgan');
+const MongoClient = require('mongodb').MongoClient;
+var database;
 
 
 const app = express ();
@@ -14,10 +16,36 @@ app.use(cors());
 
 require('./src/route/index')(app);
 
-app.listen(3001);
+app.get('api/clients', (req, res) => {
+    database.collection('client').find({}).toArray((error, result) => {
+        if (err){
+            res.status(200).send({message:'Hubo errores'});
+        }
+        else{
+            res.status(200).send({message:'result'});
+        }
+        
+    });
+});
 
-app.get('*', (req, res) => {
+app.listen(3001, async () => {
+    const URI = 'mongodb://127.0.0.1:27017';
+    const client = new MongoClient(URI);
+
+    try {
+        await client.connect();
+        console.log('SUCCESS');
+        //database = result.db('react');
+
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+
+
+/*app.get('*', (req, res) => {
     return res.status(200).send({message: 'API V1 OK !'});
-})
+})*/
 
 
