@@ -39,20 +39,39 @@ module.exports={
             }
             );
         },
-    getClients(req, res){
+        getClients(req, res){
+            const DATABASE=req.app.get('DATABASE');
+            DATABASE.collection('client').find({}).toArray((error, result) => {
+                
+                if (error){
+                    res.status(200).send({'error:':error});
+                }
+                else{
+                    res.status(200).send({'message:':result});
+                    result.forEach((val)=>{
+                        console.log(val);
+                    });
+                    }
+            });
+    
+    },           
+    getClient(req, res){
         const DATABASE=req.app.get('DATABASE');
-        DATABASE.collection('client').find({}).toArray((error, result) => {
+        const body=req.body;
+        const nameValue=req.params.name;
+
+        DATABASE.collection('client').find({name: nameValue}).toArray((error, result) => {
             
             if (error){
                 res.status(200).send({'error:':error});
             }
             else{
                 res.status(200).send({'message:':result});
-            }
-            result.forEach((val)=>{
-                console.log(val);
-            });
+                result.forEach((val)=>{
+                    console.log(val);
+                });
+                }
         });
 
-    }           
+}           
 }
