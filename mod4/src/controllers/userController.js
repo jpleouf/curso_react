@@ -78,7 +78,8 @@ addClient(req, res){
     const DATABASE=req.app.get('DATABASE');
     const body={"name": "Saul", "lastname":"better_call","age":50};
     
-    DATABASE.collection('client').insertOne(body, (error, result) => {
+    
+    DATABASE.collection('client').insertOne(req.body, (error, result) => {
         if (error){
             res.status(500).send({'Error':error});
         }
