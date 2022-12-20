@@ -16,6 +16,11 @@ const [apellido, setApellido]=useState('');
 const [edad, setEdad]=useState('');
 
 const dispatch=useDispatch();
+const [name, setName]=useState('');
+const [lastname, setLastname]=useState('');
+const [age, setAge]=useState(0);
+
+const [data, setUserdata]=useState({});
 
 const informations=useSelector((state) => state.informations);
 
@@ -30,31 +35,35 @@ useEffect(() => {
 },[]);
 
 const sendData = () => {
-    console.log(nombre);
-    console.log(apellido);
-    console.log(edad);
+    console.log(name);
+    console.log(lastname);
+    console.log(age);
 
     const data = {
         name: nombre,
         lastname:apellido,
         age:edad
     };
+
+    const body={name,lastname,age};
     
-    fetch('http://localhost:3001/api/user', {
+    fetch('http://localhost:3001/api/client/add', {
       method: 'POST', 
-      body: JSON.stringify(data), 
+      body: JSON.stringify(body), 
       headers:{
         'Content-Type': 'application/json'
       }
     }).then(res => { return res.json();})
     .catch(error => console.error('Error:', error))
-    .then((data)=>{
-        setUserData(data);
-        dispatch(setCreateUserLogged(data));
+    .then((response)=>{
+        setUserData(response.data);
+        //dispatch(setCreateUserLogged(data));
         console.log(data);
     })
 
 }
+
+
 
 return (
     <div>
@@ -66,24 +75,24 @@ return (
         <br></br>
         <center>
         <div>
-            <TextField variant="outlined" label="Nombre" type="text" id="nombre" name="nombre" value={nombre} onChange={
+            <TextField variant="outlined" label="Nombre" type="text" id="name" name="name" value={name} onChange={
                 (event) => {
                     event.preventDefault();
-                    setNombre(event.target.value);
+                    setName(event.target.value);
                 }
                 }></TextField>
-            <TextField variant="outlined" label="Apellido" type="text" id="apellido" name="apellido" value={apellido} onChange={
+            <TextField variant="outlined" label="Apellido" type="text" id="lastname" name="lastname" value={lastname} onChange={
                 (event) => {
                     event.preventDefault();
-                    setApellido(event.target.value);
+                    setLastname(event.target.value);
                 }
                 }></TextField>
 
                 
-            <TextField variant="outlined" label="Edad" type="number" id="edad" name="edad" value={edad} onChange={
+            <TextField variant="outlined" label="Edad" type="number" id="age" name="age" value={age} onChange={
                 (event) => {
                     event.preventDefault();
-                    setEdad(event.target.value);
+                    setAge(event.target.value);
                 }
                 }></TextField>
         </div>
