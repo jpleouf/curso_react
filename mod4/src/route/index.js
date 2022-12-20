@@ -6,13 +6,13 @@ module.exports= (app) => {
     });
     
 
-    //servcios para users
+    //servcios para users con JSON
     app.get('/api/users',userController.getUser);
     app.post('/api/user',userController.createUser);
     app.get('/api/userc',userController.createUser);
     app.get('/api/userd',userController.deleteUser);
 
-    //servcios para DB Client
+    //servcios para client con MongoDB
     app.get('/api/clients',userController.getClients);
 
 }

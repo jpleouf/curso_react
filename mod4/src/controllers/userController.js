@@ -40,7 +40,19 @@ module.exports={
             );
         },
     getClients(req, res){
-        return res.status(200).send(dataFake);
+        const DATABASE=req.app.get('DATABASE');
+        DATABASE.collection('client').find({}).toArray((error, result) => {
+            
+            if (error){
+                res.status(200).send({'error:':error});
+            }
+            else{
+                res.status(200).send({'message:':result});
+            }
+            result.forEach((val)=>{
+                console.log(val);
+            });
+        });
 
     }           
 }

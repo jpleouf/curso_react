@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const MongoClient = require('mongodb').MongoClient;
-var database;
+//var database;
 
 
 const app = express ();
@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-require('./src/route/index')(app,database);
+require('./src/route/index')(app);
 /*
 app.get('*', (req, res) => {
     database.collection('client').find({}).toArray((error, result) => {
