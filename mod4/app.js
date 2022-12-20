@@ -14,8 +14,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-require('./src/route/index')(app);
-
+require('./src/route/index')(app,database);
+/*
 app.get('*', (req, res) => {
     database.collection('client').find({}).toArray((error, result) => {
         //console.log(database);
@@ -27,13 +27,29 @@ app.get('*', (req, res) => {
         }
         
     });
-});
+});*/
+
+app.get('*', (req, res) => {
+    return res.status(200).send({message: 'API V1 OK !'});
+})
+
 
 app.listen(3001, async () => {
     const URI = 'mongodb://127.0.0.1:27017';
-    const client = new MongoClient(URI);
+//    const client = new MongoClient(URI);
+new MongoClient(URI)
+.connect()
+.then((client) => {
+    //database = client.db('react');
+    console.log('Connected to DB');
+    app.set('DATABASE',client.db('react'));
+})
+.catch((error) => {
+    console.log('Error DB: '+error);
+})
 
-    try {
+
+    /*try {
         await client.connect();
         console.log('SUCCESS');
         database = client.db('react');
@@ -46,13 +62,10 @@ app.listen(3001, async () => {
     
     } catch (e) {
         console.error(e);
-    }
+    }*/
 });
 
 
 
-/*app.get('*', (req, res) => {
-    return res.status(200).send({message: 'API V1 OK !'});
-})*/
 
 
