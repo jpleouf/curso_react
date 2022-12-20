@@ -6,9 +6,13 @@ module.exports= (app) => {
     });
     
 
+    //servcios para users
     app.get('/api/users',userController.getUser);
-    app.get('/api/clients',userController.getClients);
     app.post('/api/user',userController.createUser);
     app.get('/api/userc',userController.createUser);
     app.get('/api/userd',userController.deleteUser);
+
+    //servcios para DB Client
+    app.get('/api/clients',userController.getClients);
+
 }
