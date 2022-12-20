@@ -104,6 +104,18 @@ addClient(req, res){
         },
     deleteClient(req, res){
         const DATABASE=req.app.get('DATABASE');
+        const body={"name": "Saul", "lastname":"better_____call","age":55};
+        const query={name:body.name};
+        const dataset={$set:body};
+    
+        DATABASE.collection('client').deleteOne(query, dataset, (error, result) => {
+            if (error){
+                res.status(500).send({'Error':error});
+            }
+            else{
+                res.status(201).send({'Message':'CLiente suprimido con exito', data: result});
+                }
+        })
     
     }
         

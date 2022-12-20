@@ -16,6 +16,7 @@ module.exports= (app) => {
     app.get('/api/clients',userController.getClients);
     app.get('/api/client/add',userController.addClient);
     app.get('/api/client/update/:name',userController.updateClient);
+    app.get('/api/client/delete/:name',userController.deleteClient);
     app.get('/api/client/:name',userController.getClient);
 
 }
