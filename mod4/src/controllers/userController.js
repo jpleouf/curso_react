@@ -75,7 +75,6 @@ module.exports={
 
 },
 addClient(req, res){
-    
     const DATABASE=req.app.get('DATABASE');
     const body={"name": "Saul", "lastname":"better_call","age":50};
     DATABASE.collection('client').insertOne(body, (error, result) => {
@@ -89,9 +88,13 @@ addClient(req, res){
     
     })
     },
-deleteClient(req, res){
-    const DATABASE=req.app.get('DATABASE');
-
-}
-
+    updateClient(req, res){
+        const DATABASE=req.app.get('DATABASE');
+    
+    },
+    deleteClient(req, res){
+        const DATABASE=req.app.get('DATABASE');
+    
+    }
+        
 }
