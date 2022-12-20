@@ -15,7 +15,7 @@ module.exports= (app) => {
     //servcios para client con MongoDB
     app.get('/api/clients',userController.getClients);
     app.get('/api/client/add',userController.addClient);
+    app.get('/api/client/update/:name',userController.updateClient);
     app.get('/api/client/:name',userController.getClient);
-    app.put('/api/client/:name',userController.updateClient);
 
 }
